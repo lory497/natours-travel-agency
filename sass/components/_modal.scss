@@ -1,0 +1,45 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as *;
+
+.modal {
+  @include overlay;
+
+  &__content {
+    @include absCenter;
+
+    width: 30%;
+    background-color: var.$color-white;
+    box-shadow: 0 2rem 4rem rgba(var.$color-black, 0.2);
+    border-radius: 3px;
+    text-align: center;
+    padding: 4rem 1.5rem;
+
+    @include respond(tab-land) {
+      width: 50%;
+    }
+    @include respond(tab-port) {
+      width: 55%;
+    }
+
+    @include respond(phone) {
+      width: 80%;
+    }
+
+    img {
+      width: 15%;
+
+      @include respond(phone) {
+        width: 20%;
+      }
+    }
+
+    p {
+      font-size: var.$default-font-size;
+      padding: 0 1.5rem;
+    }
+  }
+}
+
+.hidden {
+  display: none;
+}
